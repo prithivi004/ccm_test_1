@@ -48,7 +48,7 @@ const QuotationList = React.lazy(() => import("./administration/billing/Quotatio
 const Login = React.lazy(() => import("./auth/Login.js"));
 const Logout = React.lazy(() => import("./auth/Logout.js"));
 const AddCountry = React.lazy(() => import("./AddCountry.js"));
-const NavBar = React.lazy(() => import("./NavBar.js"));
+const NavBar = React.lazy(() => import("./Navbar.js"));
 
 const LandingPage = React.lazy(() => import("./administration/landingPage/LandingPage.js"));
 const ForgotPassword = React.lazy(() => import("./auth/Forgotpassword.js"));
