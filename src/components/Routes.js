@@ -1,5 +1,5 @@
-import React, { Suspense } from 'react'
-import {Switch, Route,Redirect} from 'react-router-dom'
+import React, { lazy, Suspense } from 'react';
+import {Switch, Route,Redirect} from 'react-router-dom';
 
 /* import Profile from './Profile'
 import Dashboard from './administration/dashboard/main'
@@ -32,7 +32,7 @@ import Pending from './administration/billing/Status/Pending'
 import Completed from './administration/billing/Status/Completed'
 import Cancelled from './administration/billing/Status/Cancelled'
 import AllQ from './administration/billing/Status/AllQ' */
-import Login from './auth/Login';
+
 const Profile = React.lazy(() => import("./Profile.js"));
 const Dashboard = React.lazy(() => import("./administration/dashboard/main.js"));
 
@@ -45,7 +45,7 @@ const ClientList = React.lazy(() => import("./administration/client/ClientList.j
 const AddInvoice = React.lazy(() => import("./administration/billing/AddInvoice.js"));
 const QuotationList = React.lazy(() => import("./administration/billing/QuotationList.js"));
 
-/* const Login = React.lazy(() => import("./auth/Login.js")); */
+const Login = React.lazy(() => import("./auth/Login.js"));
 const Logout = React.lazy(() => import("./auth/Logout.js"));
 const AddCountry = React.lazy(() => import("./AddCountry.js"));
 const NavBar = React.lazy(() => import("./Navbar.js")); 
@@ -84,12 +84,16 @@ export default function BaseRouter() {
     <>
     
     <Switch>  
-    <Route exact path="/" component={Login} />
+    <Route exact path="/" />
+		<Suspense fallback={<h1>Still Loading…</h1>}>
+			<Login />
+		</Suspense>
+	</Route>
     <Route exact path="/logout" component={Logout} />
 
       <Route exact path="/profile">
         {isLogin?<><NavBar /> <Profile /></>:<Redirect to='/' />}
-      </Route>
+      
 
       <Route exact path="/country">
         {isLogin? <><NavBar /><AddCountry /></>:<Redirect to='/' />}
