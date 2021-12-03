@@ -33,7 +33,7 @@ import Completed from './administration/billing/Status/Completed'
 import Cancelled from './administration/billing/Status/Cancelled'
 import AllQ from './administration/billing/Status/AllQ'
 
-const Profile = React.lazy(() => import("./Profile.js"));
+/* const Profile = React.lazy(() => import("./Profile.js"));
 const Dashboard = React.lazy(() => import("./administration/dashboard/main.js"));
 
 const Addcontractor = React.lazy(() => import("./administration/contractor/Addcontractor.js"));
@@ -63,7 +63,7 @@ const NewUserPwd = React.lazy(() => import("./NewUserPwd.js"));
 const Pending = React.lazy(() => import("./administration/billing/Status/Pending.js"));
 const Completed = React.lazy(() => import("./administration/billing/Status/Completed.js"));
 const Cancelled = React.lazy(() => import("./administration/billing/Status/Cancelled.js"));
-const AllQ = React.lazy(() => import("./administration/billing/Status/AllQ.js"));
+const AllQ = React.lazy(() => import("./administration/billing/Status/AllQ.js")); */
 
 // import AddInvClient from './administration/billing/AddInvoiceClient';
 // import AddInvContractor from './administration/billing/AddInvContractor';
