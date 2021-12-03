@@ -84,7 +84,7 @@ export default function BaseRouter() {
     <>
     
     <Switch>  
-    <Route exact path="/" />
+    <Route exact path="/" >
 		<Suspense fallback={<h1>Still Loading…</h1>}>
 			<Login />
 		</Suspense>
