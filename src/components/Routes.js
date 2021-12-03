@@ -1,7 +1,7 @@
 import React from 'react'
 import {Switch, Route,Redirect} from 'react-router-dom'
 
-/* import Profile from './Profile'
+import Profile from './Profile'
 import Dashboard from './administration/dashboard/main'
 
 import Addcontractor from './administration/contractor/Addcontractor'
@@ -31,7 +31,7 @@ import NewUserPwd from './NewUserPwd'
 import Pending from './administration/billing/Status/Pending'
 import Completed from './administration/billing/Status/Completed'
 import Cancelled from './administration/billing/Status/Cancelled'
-import AllQ from './administration/billing/Status/AllQ' */
+import AllQ from './administration/billing/Status/AllQ'
 
 const Profile = React.lazy(() => import("./Profile.js"));
 const Dashboard = React.lazy(() => import("./administration/dashboard/main.js"));
