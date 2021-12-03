@@ -32,7 +32,7 @@ import Pending from './administration/billing/Status/Pending'
 import Completed from './administration/billing/Status/Completed'
 import Cancelled from './administration/billing/Status/Cancelled'
 import AllQ from './administration/billing/Status/AllQ' */
-
+import Login from './auth/Login';
 const Profile = React.lazy(() => import("./Profile.js"));
 const Dashboard = React.lazy(() => import("./administration/dashboard/main.js"));
 
@@ -46,7 +46,6 @@ const AddInvoice = React.lazy(() => import("./administration/billing/AddInvoice.
 const QuotationList = React.lazy(() => import("./administration/billing/QuotationList.js"));
 
 /* const Login = React.lazy(() => import("./auth/Login.js")); */
-import Login from './auth/Login';
 const Logout = React.lazy(() => import("./auth/Logout.js"));
 const AddCountry = React.lazy(() => import("./AddCountry.js"));
 const NavBar = React.lazy(() => import("./Navbar.js")); 
