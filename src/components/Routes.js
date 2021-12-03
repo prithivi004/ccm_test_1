@@ -89,88 +89,140 @@ export default function BaseRouter() {
 			<Login />
 		</Suspense>
 	</Route>
-    <Route exact path="/logout" component={Logout} />
+    <Route exact path="/logout" >
+		<Suspense fallback={<h1>Still Loading…</h1>}>
+			<Logout />
+		</Suspense>
+	</Route>
 
       <Route exact path="/profile">
+		<Suspense fallback={<h1>Still Loading…</h1>}>
         {isLogin?<><NavBar /> <Profile /></>:<Redirect to='/' />}
+		</Suspense>
       </Route>
 
       <Route exact path="/country">
+		<Suspense fallback={<h1>Still Loading…</h1>}>
         {isLogin? <><NavBar /><AddCountry /></>:<Redirect to='/' />}
+		</Suspense>
       </Route>
       <Route exact path="/dashboard">
+		<Suspense fallback={<h1>Still Loading…</h1>}>
         {isLogin? <><NavBar /><Dashboard /></>:<Redirect to='/' />}
+		</Suspense>
       </Route>
       
       <Route exact path="/addinvoice">
+		<Suspense fallback={<h1>Still Loading…</h1>}>
         {isLogin?<><NavBar /> <AddInvoice /></>:<Redirect to='/' />}
+		</Suspense>
       </Route>
       <Route exact path="/addQuotation">
+		<Suspense fallback={<h1>Still Loading…</h1>}>
         {isLogin?<><NavBar /> <AddQuotation /></>:<Redirect to='/' />}
+		</Suspense>
       </Route>
       {/* <Route exact path="/editQuotation/:id" component={EditQuotation}> */}
         {/* {isLogin?<><NavBar /> <EditQuotation /></>:<Redirect to='/' />} */}
       {/* </Route> */}
-      <Route exact path="/editQuotation/:id" render={props =>
-      isLogin?
-  <>
-    <NavBar/>
-    <EditQuotation {...props}/>
-  </>:<Redirect to='/' />
-} />
+      <Route exact path="/editQuotation/:id">
+		<Suspense fallback={<h1>Still Loading…</h1>}>
+		{isLogin?
+		  <>
+			<NavBar/>
+			<EditQuotation {...props}/>
+		  </>:<Redirect to='/' />
+		}
+		</Suspense>
+	  </Route>
       <Route exact path="/cwr-summary">
+		<Suspense fallback={<h1>Still Loading…</h1>}>
         {isLogin?<><NavBar /> <QuotationList /></>:<Redirect to='/' />}
+		</Suspense>
       </Route>
       <Route exact path="/cwr-summary/2">
+		<Suspense fallback={<h1>Still Loading…</h1>}>
         {isLogin?<><NavBar /> <Pending /></>:<Redirect to='/' />}
+		</Suspense>
       </Route>
       <Route exact path="/cwr-summary/1">
+		<Suspense fallback={<h1>Still Loading…</h1>}>
         {isLogin?<><NavBar /> <Completed /></>:<Redirect to='/' />}
+		</Suspense>
       </Route>
       <Route exact path="/cwr-summary/3">
+		<Suspense fallback={<h1>Still Loading…</h1>}>
         {isLogin?<><NavBar /> <Cancelled /></>:<Redirect to='/' />}
+		</Suspense>
       </Route>
       <Route exact path="/cwr-summary/4">
+		<Suspense fallback={<h1>Still Loading…</h1>}>
         {isLogin?<><NavBar /> <AllQ /></>:<Redirect to='/' />}
+		</Suspense>
       </Route>
       <Route exact path="/UserProfile">
+		<Suspense fallback={<h1>Still Loading…</h1>}>
         {isLogin? <><NavBar /><AddUser /></>:<Redirect to='/' />}
+		</Suspense>
       </Route>
       <Route exact path="/user-list">
+		<Suspense fallback={<h1>Still Loading…</h1>}>
         {isLogin?<><NavBar /> <UserList /></>:<Redirect to='/' />}
+		</Suspense>
       </Route>
       <Route exact path="/Contractor-list">
+		<Suspense fallback={<h1>Still Loading…</h1>}>
         {isLogin?<><NavBar /> <Contractorlist /></>:<Redirect to='/' />}
+		</Suspense>
       </Route>
       <Route exact path="/addcontractor">
+		<Suspense fallback={<h1>Still Loading…</h1>}>
         {isLogin? <><NavBar /><Addcontractor /> </>:<Redirect to='/' />}
+		</Suspense>
       </Route>
       <Route exact path="/addclient">
+		<Suspense fallback={<h1>Still Loading…</h1>}>
         {isLogin? <><NavBar /><AddClient /></>:<Redirect to='/' />}
+		</Suspense>
       </Route>
       <Route exact path="/client-list">
+		<Suspense fallback={<h1>Still Loading…</h1>}>
         {isLogin?<><NavBar /> <ClientList /></>:<Redirect to='/' />}
+		</Suspense>
       </Route>
       <Route exact path="/trash">
+		<Suspense fallback={<h1>Still Loading…</h1>}>
         {isLogin?<><NavBar /><TrashQuote/></>:<Redirect to='/' />}
+		</Suspense>
       </Route>
       
       <Route exact path="/forgot-password">
+		<Suspense fallback={<h1>Still Loading…</h1>}>
         {isLogin? <><NavBar /><ForgotPassword /></>:<Redirect to='/' />}
+		</Suspense>
       </Route>
       <Route exact path="/list">
+		<Suspense fallback={<h1>Still Loading…</h1>}>
         {isLogin? <><NavBar /><LandingPage /></>:<Redirect to='/' />}
+		</Suspense>
       </Route>
 
       <Route exact path="/forgotpassword">
+		<Suspense fallback={<h1>Still Loading…</h1>}>
        <><DummyNav/> <PasswordReset/></>
+	   </Suspense>
       </Route>
 
       <Route exact path='/reset_password/:hash?'>
+	  <Suspense fallback={<h1>Still Loading…</h1>}>
       <><DummyNav/> <UserForgotpwd/></>
+	  </Suspense>
       </Route>
+	  
       <Route exact path='/activate/:hash?'>
+	  <Suspense fallback={<h1>Still Loading…</h1>}>
       <><DummyNav/><NewUserPwd/></>
+	  </Suspense>
       </Route>
 
 {/* 
