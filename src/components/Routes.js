@@ -32,7 +32,7 @@ import Pending from './administration/billing/Status/Pending'
 import Completed from './administration/billing/Status/Completed'
 import Cancelled from './administration/billing/Status/Cancelled'
 import AllQ from './administration/billing/Status/AllQ' */
-
+import EditQuotation from './administration/billing/EditQuotation';
 const Profile = React.lazy(() => import("./Profile.js"));
 const Dashboard = React.lazy(() => import("./administration/dashboard/main.js"));
 
@@ -53,7 +53,7 @@ const NavBar = React.lazy(() => import("./Navbar.js"));
 const LandingPage = React.lazy(() => import("./administration/landingPage/LandingPage.js"));
 const ForgotPassword = React.lazy(() => import("./auth/Forgotpassword.js"));
 const AddQuotation = React.lazy(() => import("./administration/billing/AddQuotation.js"));
-const EditQuotation = React.lazy(() => import("./administration/billing/EditQuotation.js"));
+/* const EditQuotation = React.lazy(() => import("./administration/billing/EditQuotation.js")); */
 const TrashQuote = React.lazy(() => import("./administration/billing/TrashQuote.js"));
 
 const PasswordReset = React.lazy(() => import("./ForgotPassword.js"));
@@ -125,16 +125,13 @@ export default function BaseRouter() {
       {/* <Route exact path="/editQuotation/:id" component={EditQuotation}> */}
         {/* {isLogin?<><NavBar /> <EditQuotation /></>:<Redirect to='/' />} */}
       {/* </Route> */}
-      <Route exact path="/editQuotation/:id">
-		<Suspense fallback={<h1>Still Loading…</h1>}>
-		{isLogin?
-		  <>
-			<NavBar/>
-			<EditQuotation {...props}/>
-		  </>:<Redirect to='/' />
-		}
-		</Suspense>
-	  </Route>
+      <Route exact path="/editQuotation/:id" render={props =>
+		  isLogin?
+	  <>
+		<NavBar/>
+		<EditQuotation {...props}/>
+	  </>:<Redirect to='/' />
+	} />
       <Route exact path="/cwr-summary">
 		<Suspense fallback={<h1>Still Loading…</h1>}>
         {isLogin?<><NavBar /> <QuotationList /></>:<Redirect to='/' />}
