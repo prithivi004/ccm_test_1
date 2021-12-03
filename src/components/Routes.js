@@ -93,7 +93,7 @@ export default function BaseRouter() {
 
       <Route exact path="/profile">
         {isLogin?<><NavBar /> <Profile /></>:<Redirect to='/' />}
-      
+      </Route>
 
       <Route exact path="/country">
         {isLogin? <><NavBar /><AddCountry /></>:<Redirect to='/' />}
