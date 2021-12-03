@@ -45,8 +45,8 @@ const ClientList = React.lazy(() => import("./administration/client/ClientList.j
 const AddInvoice = React.lazy(() => import("./administration/billing/AddInvoice.js"));
 const QuotationList = React.lazy(() => import("./administration/billing/QuotationList.js"));
 
-const Login = React.lazy(() => import("./Login.js"));
-const Logout = React.lazy(() => import("./Logout.js"));
+const Login = React.lazy(() => import("./auth/Login.js"));
+const Logout = React.lazy(() => import("./auth/Logout.js"));
 const AddCountry = React.lazy(() => import("./AddCountry.js"));
 const NavBar = React.lazy(() => import("./NavBar.js"));
 
