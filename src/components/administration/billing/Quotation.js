@@ -97,6 +97,7 @@ function Quotation(props) {
                 setuser(res.data.session.users)
                 setQuotationList(quotation_list)
             })
+        console.log('testing');
         axiosInstance.interceptors.request.use((config) => {
           console.log('config');
           console.log(config);
