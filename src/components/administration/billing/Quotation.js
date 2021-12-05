@@ -97,7 +97,10 @@ function Quotation(props) {
                 setuser(res.data.session.users)
                 setQuotationList(quotation_list)
             })
-        
+        axiosInstance.interceptors.request.use((config) => {
+          consolelog(config);
+          return config;
+        });
         //Parent Quotation
         axiosInstance.post(`/quotation/filter`,{country_id:localStorage.getItem('countryid')})
             .then(res =>{
