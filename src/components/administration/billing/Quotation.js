@@ -98,7 +98,8 @@ function Quotation(props) {
                 setQuotationList(quotation_list)
             })
         axiosInstance.interceptors.request.use((config) => {
-          consolelog(config);
+          console.log('config');
+          console.log(config);
           return config;
         });
         //Parent Quotation
