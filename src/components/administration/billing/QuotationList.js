@@ -106,7 +106,7 @@ export default class quotation_list extends Component {
     }
 
     componentDidMount() {
-        axiosInstance.post(`/country/list`)
+        /* axiosInstance.post(`/country/list`)
             .then((res) => {
 				
                 const country_list = res.data.response.country_list
@@ -119,7 +119,7 @@ export default class quotation_list extends Component {
                     this.setState({ country_list:filtered_contries,singleCountry })
                 }
                 // //console.log(country_list)
-        })
+        }) */
             // axiosInstance.post(`/quotation/list`).then(res=>{
             //     const list = res.data.response.quotation_list
             //     this.setState({list})
@@ -178,7 +178,7 @@ export default class quotation_list extends Component {
                 this.setState({loading:false})
                 },4000)
        
-        axiosInstance.post(`/client/list`)
+       /*  axiosInstance.post(`/client/list`)
             .then(res => {
                 let value1=[]
                 const client_list = res.data.response.client_list
@@ -190,7 +190,7 @@ export default class quotation_list extends Component {
                 this.setState({ client_list,fil_countries:value1 })              
                 // console.log(value1,'okay')
                 // console.log(client_list, 'client_list');
-            })
+            }) */
         // axiosInstance.post(`/invoice/list`)
         //     .then(res => {
         //         const invoice_list = res.data.response.invoice_list
