@@ -106,20 +106,6 @@ export default class quotation_list extends Component {
     }
 
     componentDidMount() {
-        /* axiosInstance.post(`/country/list`)
-            .then((res) => {
-				
-                const country_list = res.data.response.country_list
-                const singleCountry = country_list.find(country => country.id == localStorage.getItem('countryid'))
-                const filtered_contries = country_list.filter(country => country.id == localStorage.getItem('countryid'))
-                if(localStorage.getItem('role') == 'admin'){
-                    this.setState({country_list,singleCountry})
-                }
-                else{
-                    this.setState({ country_list:filtered_contries,singleCountry })
-                }
-                // //console.log(country_list)
-        }) */
             // axiosInstance.post(`/quotation/list`).then(res=>{
             //     const list = res.data.response.quotation_list
             //     this.setState({list})
@@ -134,26 +120,40 @@ export default class quotation_list extends Component {
                 .then(res => {
                     console.log('filter');
                     console.log(res);
-					this.setState({loading:false});
                     if(localStorage.getItem('countryid') === null){
                         this.setState({ list:[], quotation_list:[], parent_list:[] })
     
                     }
                     else{
                     
-                    const total_pages = res.data.response.paging_details.total
-                    // const quotation_list = list.filter(quote => quote.parent_id === '0')
-                    const parent_list = res.data.response.quotation_list
-                    const users = res.data.session.users
-                    // console.log(users)
-                    const usrname=res.data.session.users.name
-                    // console.log(usrname)
-                    // console.log(parent_list)
-                    // console.log(total_pages,'pages')
-                    // console.log(quotation_list, list, "quotation_list")
-                    this.setState({ parent_list,total_pages,users,usrname })
+						const total_pages = res.data.response.paging_details.total
+						// const quotation_list = list.filter(quote => quote.parent_id === '0')
+						const parent_list = res.data.response.quotation_list
+						const users = res.data.session.users
+						// console.log(users)
+						const usrname=res.data.session.users.name
+						// console.log(usrname)
+						// console.log(parent_list)
+						// console.log(total_pages,'pages')
+						// console.log(quotation_list, list, "quotation_list")
+						this.setState({ parent_list,total_pages,users,usrname })
                     }
+					this.setState({loading:false});
                 })
+			 axiosInstance.post(`/country/list`)
+				.then((res) => {
+					
+					const country_list = res.data.response.country_list
+					const singleCountry = country_list.find(country => country.id == localStorage.getItem('countryid'))
+					const filtered_contries = country_list.filter(country => country.id == localStorage.getItem('countryid'))
+					if(localStorage.getItem('role') == 'admin'){
+						this.setState({country_list,singleCountry})
+					}
+					else{
+						this.setState({ country_list:filtered_contries,singleCountry })
+					}
+					// //console.log(country_list)
+			})
             // }else{
             //     axiosInstance.post(`/quotation/filter`,{from_date:this.state.fromDate,client_id:this.state.client_id,to_date:this.state.toDate,s:this.state.emailSearch,job_status:this.state.status,page:1,per_page:this.state.perpage,country_id:localStorage.getItem('countryid')})
             // .then(res => {
@@ -179,7 +179,7 @@ export default class quotation_list extends Component {
                 this.setState({loading:false})
                 },4000)
        
-       /*  axiosInstance.post(`/client/list`)
+			axiosInstance.post(`/client/list`)
             .then(res => {
                 let value1=[]
                 const client_list = res.data.response.client_list
@@ -191,7 +191,7 @@ export default class quotation_list extends Component {
                 this.setState({ client_list,fil_countries:value1 })              
                 // console.log(value1,'okay')
                 // console.log(client_list, 'client_list');
-            }) */
+            })
         // axiosInstance.post(`/invoice/list`)
         //     .then(res => {
         //         const invoice_list = res.data.response.invoice_list
