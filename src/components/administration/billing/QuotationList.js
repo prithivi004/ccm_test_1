@@ -134,6 +134,7 @@ export default class quotation_list extends Component {
                 .then(res => {
                     console.log('filter');
                     console.log(res);
+					this.setState({loading:false});
                     if(localStorage.getItem('countryid') === null){
                         this.setState({ list:[], quotation_list:[], parent_list:[] })
     
