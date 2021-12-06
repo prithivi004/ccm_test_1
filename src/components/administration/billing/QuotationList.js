@@ -106,14 +106,9 @@ export default class quotation_list extends Component {
     }
 
     componentDidMount() {
-		console.log('testing');
-        axiosInstance.interceptors.request.use((config) => {
-          console.log('config');
-          console.log(config);
-          return config;
-        });
         axiosInstance.post(`/country/list`)
             .then((res) => {
+				
                 const country_list = res.data.response.country_list
                 const singleCountry = country_list.find(country => country.id == localStorage.getItem('countryid'))
                 const filtered_contries = country_list.filter(country => country.id == localStorage.getItem('countryid'))
@@ -124,15 +119,21 @@ export default class quotation_list extends Component {
                     this.setState({ country_list:filtered_contries,singleCountry })
                 }
                 // //console.log(country_list)
-            })
+        })
             // axiosInstance.post(`/quotation/list`).then(res=>{
             //     const list = res.data.response.quotation_list
             //     this.setState({list})
             // })
             // if(this.state.emailSearch==''){
-                axiosInstance.post(`/quotation/filter`,{from_date:this.state.fromDate,client_id:this.state.client_id,to_date:this.state.toDate,s:this.state.emailSearch,job_status:this.state.status,qut_status:this.state.quoteStatus,page:this.state.activePage,per_page:this.state.perpage,country_id:localStorage.getItem('countryid')})
+		axiosInstance.interceptors.request.use((config) => {
+          console.log('config');
+          console.log(config);
+          return config;
+        });
+        axiosInstance.post(`/quotation/filter`,{from_date:this.state.fromDate,client_id:this.state.client_id,to_date:this.state.toDate,s:this.state.emailSearch,job_status:this.state.status,qut_status:this.state.quoteStatus,page:this.state.activePage,per_page:this.state.perpage,country_id:localStorage.getItem('countryid')})
                 .then(res => {
-                    // console.log(res.json())
+                    console.log('filter');
+                    console.log(res.json());
                     if(localStorage.getItem('countryid') === null){
                         this.setState({ list:[], quotation_list:[], parent_list:[] })
     
