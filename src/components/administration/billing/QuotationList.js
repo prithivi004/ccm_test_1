@@ -125,15 +125,15 @@ export default class quotation_list extends Component {
             //     this.setState({list})
             // })
             // if(this.state.emailSearch==''){
-		/* axiosInstance.interceptors.request.use((config) => {
+		axiosInstance.interceptors.request.use((config) => {
           console.log('config');
           console.log(config);
           return config;
-        }); */
+        });
         axiosInstance.post(`/quotation/filter`,{from_date:this.state.fromDate,client_id:this.state.client_id,to_date:this.state.toDate,s:this.state.emailSearch,job_status:this.state.status,qut_status:this.state.quoteStatus,page:this.state.activePage,per_page:this.state.perpage,country_id:localStorage.getItem('countryid')})
                 .then(res => {
                     console.log('filter');
-                    console.log(res.json());
+                    console.log(res);
                     if(localStorage.getItem('countryid') === null){
                         this.setState({ list:[], quotation_list:[], parent_list:[] })
     
