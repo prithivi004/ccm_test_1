@@ -106,6 +106,12 @@ export default class quotation_list extends Component {
     }
 
     componentDidMount() {
+		console.log('testing');
+        axiosInstance.interceptors.request.use((config) => {
+          console.log('config');
+          console.log(config);
+          return config;
+        });
         axiosInstance.post(`/country/list`)
             .then((res) => {
                 const country_list = res.data.response.country_list
